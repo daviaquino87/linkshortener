@@ -7,3 +7,5 @@ Segue as seguintes configurações:
 npx nodemon - para que seja baixado a versão mais recente do nodemon antes de executar;
 
 dotenv/config - para carregar as configurações setadas no nosso dotenv antes de executar
+
+aplicação adicionada ao heroku
