@@ -1,0 +1,9 @@
+Esse é o comando para iniciar a aplicação em desenvolviment:
+
+"dev": "npx nodemon -r dotenv/config ./bin/www"
+
+Segue as seguintes configurações:
+
+npx nodemon - para que seja baixado a versão mais recente do nodemon antes de executar;
+
+dotenv/config - para carregar as configurações setadas no nosso dotenv antes de executar
