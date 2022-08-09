@@ -7,6 +7,15 @@
 var app = require('../app');
 var debug = require('debug')('url-shortener:server');
 var http = require('http');
+(async () => {
+  const database = require('../db');
+  const Link = require('../models/links');
+ 
+  await database.sync();
+ 
+//restante fica igual
+ 
+})();
 
 /**
  * Get port from environment and store in Express.

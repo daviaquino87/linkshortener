@@ -22,3 +22,5 @@ const Link = database.define('links' , {
         defaultValue: 0
     }
 })
+
+module.exports = Link;

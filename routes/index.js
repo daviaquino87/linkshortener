@@ -1,5 +1,14 @@
 var express = require('express');
 var router = express.Router();
+let Link = require('../models/links')
+
+
+router.get('/:code/stats', async (req, res, next) => {
+  const code = req.params.code;
+  const resultado = await Link.findOne({ where: { code } });
+  if (!resultado) return res.sendStatus(404);
+  res.render('stats', resultado.dataValues);
+})
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,7 +19,24 @@ router.post('/new', async(req,res,next) => {
   const url = req.body.url;
   const code = generateCode();
 
-  res.send(`${process.env.DOMAIN}${code}`);
+  const resultado = await Link.create({
+    url,
+    code
+  });
+
+  res.render('stats',resultado.dataValues)
+})
+
+router.get('/:code', async(req,res,next) => {
+  const code = req.params.code;
+
+  const resultado = await Link.findOne({whre:code});
+  if(!resultado) return res.sendStatus(400);
+
+  resultado.hits++;
+  await resultado.save();
+
+  res.redirect(resultadp.url)
 })
 
 function generateCode(){
