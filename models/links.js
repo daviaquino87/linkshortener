@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const database = require('../db');
 
-const Link = database.define('links' , {
+const Link = database.define('link', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -14,7 +14,7 @@ const Link = database.define('links' , {
     },
     url: {
         type: Sequelize.STRING,
-        allowNull: false 
+        allowNull: false
     },
     hits: {
         type: Sequelize.INTEGER,

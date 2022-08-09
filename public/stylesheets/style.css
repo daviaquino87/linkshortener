@@ -1,20 +1,20 @@
-header{
+.header {
   padding: 3rem;
   text-align: center;
 }
 
-.icon{
+.icon {
   height: 42px;
 }
 
-.content{
+.content {
   display: flex;
   justify-content: center !important;
 }
 
-form{
+form {
   flex: 0 0 80%;
-  padding: 2rem 2rem 1rem 2rem ;
+  padding: 2rem 2rem 1rem 2rem;
   border: 1px solid #ccc;
   border-radius: .25rem;
   text-align: center;

@@ -15,28 +15,27 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Encurtador' });
 });
 
-router.post('/new', async(req,res,next) => {
+router.post('/new', async (req, res, next) => {
   const url = req.body.url;
   const code = generateCode();
 
   const resultado = await Link.create({
     url,
     code
-  });
-
-  res.render('stats',resultado.dataValues)
+  })
+  res.render('stats', resultado.dataValues);
 })
 
-router.get('/:code', async(req,res,next) => {
+router.get('/:code', async (req, res, next) => {
   const code = req.params.code;
 
-  const resultado = await Link.findOne({whre:code});
-  if(!resultado) return res.sendStatus(400);
+  const resultado = await Link.findOne({ where: { code } });
+  if (!resultado) return res.sendStatus(404);
 
   resultado.hits++;
   await resultado.save();
 
-  res.redirect(resultadp.url)
+  res.redirect(resultado.url);
 })
 
 function generateCode(){
