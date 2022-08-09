@@ -14,13 +14,12 @@ router.post('/new', async(req,res,next) => {
 })
 
 function generateCode(){
-  let text = " ";
-  const possibility = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijlmnopqrstuvwxyz0123456789";
-  for(i =0; i < 5; i++){
-    text += possibility.charAt(Math.floor(Math.random() * possibility.length));
+  let text = '';
+  const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijlmnopqrstuvwxyz0123456789';
+  for(let i = 0 ; i < 5; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
     return text;  
-  }
-
 }
+
 
 module.exports = router;
